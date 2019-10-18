@@ -1,37 +1,68 @@
-# python-flask-docker
-Basic Python Flask app in Docker which prints the hostname and IP of the container
+# DataTransformer WEB API
 
-### Build application
-Build the Docker image manually by cloning the Git repo.
-```
-$ git clone https://github.com/lvthillo/python-flask-docker.git
-$ docker build -t lvthillo/python-flask-docker .
-```
+DataTransformer is a Web API solution for uploading a csv file and writing it MSSQL Database and JSON file simultaneously.
 
-### Download precreated image
-You can also just download the existing image from [DockerHub](https://hub.docker.com/r/lvthillo/python-flask-docker/).
-```
-docker pull lvthillo/python-flask-docker
-```
+The solution has 5 project:
 
-### Run the container
-Create a container from the image.
-```
-$ docker run --name my-container -d -p 8080:8080 lvthillo/python-flask-docker
-```
+## DataTransformerAPI
 
-Now visit http://localhost:8080
-```
- The hostname of the container is 6095273a4e9b and its IP is 172.17.0.2. 
-```
+The actual interface through which clients can work with our API was implemented through ASP.NET Core and Entity Framework Core Code First.
+Project for controllers, mapping between domain model and API model, API configuration (DB and JSON DBContext configuration).
 
-### Verify the running container
-Verify by checking the container ip and hostname (ID):
-```
-$ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' my-container
-172.17.0.2
-$ docker inspect -f '{{ .Config.Hostname }}' my-container
-6095273a4e9b
-```
+### Controllers Folder
+
+This folder is for controller classes. There is only one controller "FileUploaderController" for uploading csv file.
+
+#### Upload File Request URL: 
+
+POST http://localhost:52825/api/fileuploader
+
+#### Upload File Request BODY 
+
+{
+	"Path":"C:\\Users\\etimtez\\Desktop\\iru-assignment-2018.csv"
+}
+
+### APITransformerExecuter Folder
+
+This folder is for executing for fileuploader, calling Business projects classess for converting API models to Logic (Domain) and and Logic (Domain) models to Data Models.
+
+## DataTransformer.Api.Model
+
+Project for API models.
+
+## DataTransformer.Business
+
+Project for all logic processes.
+
+### FileReader Folder
+This folder is for reading file operation.
+
+### APIModelToDomainModelConverter Folder
+This folder is for converting CSV files to Domain models.
+
+### DomainModelToDataModelConverter Folder
+This folder is for convering Domain models to Data models for storage interaction.
+
+### DataModelToDomainModelConverter Folder
+This folder is for convering Data models to Domain models for API.
+
+
+## DataTransformer.Data.Model
+
+Project for Data models.
+
+## DataTransformer.Api.Access
+
+Projects for interfaces and implementations of Repository pattern and Unit Of Work pattern, implementation Database Contexts for DB and JSON and accessing storages.
+
+### Context Folder 
+This folder is for implementation of DBContexts.
+
+### Repository and UnitOfWork Folders 
+These folders are for implementation of Repository and Unit Of Work patterns.
+
+### DataStorageExecuter Folder 
+This folder is for every data models database accessing by using their own repositories and their own dbcontexts. Dependecy Injection was used this implementations.
 
 
