@@ -31,7 +31,7 @@ This folder is for executing for fileuploader, calling Business projects classes
 
 Project for API models.
 
-## DataTransformer.Business
+## Project 3 - DataTransformer.Business
 
 Project for all logic processes.
 
@@ -48,11 +48,11 @@ This folder is for convering Domain models to Data models for storage interactio
 This folder is for convering Data models to Domain models for API.
 
 
-## Project 3 - DataTransformer.Data.Model
+## Project 4 - DataTransformer.Data.Model
 
 Project for Data models.
 
-## Project 4 - DataTransformer.Api.Access
+## Project 5 - DataTransformer.Api.Access
 
 Projects for interfaces and implementations of Repository pattern and Unit Of Work pattern, implementation Database Contexts for DB and JSON and accessing storages.
 
