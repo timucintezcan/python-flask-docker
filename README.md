@@ -4,7 +4,7 @@ DataTransformer is a Web API solution for uploading a csv file and writing it MS
 
 The solution has 5 project:
 
-## DataTransformerAPI
+## Project 1 - DataTransformerAPI
 
 The actual interface through which clients can work with our API was implemented through ASP.NET Core and Entity Framework Core Code First.
 Project for controllers, mapping between domain model and API model, API configuration (DB and JSON DBContext configuration).
@@ -27,7 +27,7 @@ POST http://localhost:52825/api/fileuploader
 
 This folder is for executing for fileuploader, calling Business projects classess for converting API models to Logic (Domain) and and Logic (Domain) models to Data Models.
 
-## DataTransformer.Api.Model
+## Project 2 - DataTransformer.Api.Model
 
 Project for API models.
 
@@ -48,11 +48,11 @@ This folder is for convering Domain models to Data models for storage interactio
 This folder is for convering Data models to Domain models for API.
 
 
-## DataTransformer.Data.Model
+## Project 3 - DataTransformer.Data.Model
 
 Project for Data models.
 
-## DataTransformer.Api.Access
+## Project 4 - DataTransformer.Api.Access
 
 Projects for interfaces and implementations of Repository pattern and Unit Of Work pattern, implementation Database Contexts for DB and JSON and accessing storages.
 
